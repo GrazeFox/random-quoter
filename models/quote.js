@@ -2,16 +2,26 @@ import {elements} from '../views/base.js';
 
 const url = 'https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand';
 
-export function getQuotes() {
+export async function  getQuotes() {
+    const newUrl = `${url}&t=${Math.ceil((Math.random() * 10)).toString()}`; 
+    console.log(newUrl);
+    return await fetch(newUrl)
+    .then((response) => {
+        return response.json();
+    })
+    .then((myJson) => {
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = () => {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
+        return randomQuoter(myJson);
+    })
+    .catch((error) => {
+        console.log("Error: ", error);
+    });
+};
 
-            console.log(xhttp.responseText);
-        }
-    }
-    xhttp.open("GET", url);
-    xhttp.send();
-}
-
+const randomQuoter = function(json) {
+    let val = json[Math.floor(Math.random() * json.length)];
+    return {
+        author: val['title']['rendered'],
+        content: val['content']['rendered']
+    };
+};

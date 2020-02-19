@@ -1,4 +1,5 @@
 export const elements = {
-    quote: document.getElementById("quote-text"),
-    quoteButton: document.getElementById("new-quote")
+    text: document.getElementById("text"),
+    newQuote: document.getElementById("new-quote"),
+    author: document.getElementById("author")
 }
