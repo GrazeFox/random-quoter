@@ -14,6 +14,7 @@ body {
     font-size: 20px;
     font-weight: 300;
     font-family: 'Lato', 'Arial', sans-serif;
+    transition: background-color 1s ease-in;
 }
 
 #quote-box {
@@ -28,7 +29,7 @@ body {
     word-break: normal;
 }
 
-.all-buttons {
+#new-quote {
     border: none;
     padding: 10px 30px;
     font-weight: 300;
@@ -37,11 +38,21 @@ body {
     background-color: var(--main-bg-color);
     color: whitesmoke;
     display: inline-block;
+    transition: background-color 1s ease-in;
 }
+
+
 
 .social-buttons-container {
     float: left;
     width: 30%
+}
+
+.social-buttons {
+    border-radius: inherit;
+    color: var(--main-bg-color);
+    background-color: whitesmoke;
+    transition: color 1s ease-in;
 }
 
 .quote-button-container {

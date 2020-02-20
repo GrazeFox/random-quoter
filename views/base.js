@@ -3,3 +3,5 @@ export const elements = {
     newQuote: document.getElementById("new-quote"),
     author: document.getElementById("author")
 }
+
+
