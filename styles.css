@@ -23,11 +23,25 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 3% 4%;
+    padding: 2.5% 3%;
     border-radius: 1em;
     max-width: 70%;
     word-break: normal;
 }
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  #author {
+    float:right;
+    padding: 10px 0 15px 2px;
+    font-size: 0.9em;
+}
+
 
 #new-quote {
     border: none;
@@ -39,13 +53,28 @@ body {
     color: whitesmoke;
     display: inline-block;
     transition: background-color 1s ease-in;
+    cursor: pointer;
 }
 
 
+.fade_in {
+    opacity: 1;
+    animation: fadein 2s ease-in; 
+}
+
+.fade_out {
+    opacity: 1;
+    animation: fadeout 2s ease-out; 
+}
+
+@keyframes fadeout {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
 
 .social-buttons-container {
     float: left;
-    width: 30%
+    width: 30%;
 }
 
 .social-buttons {
@@ -53,6 +82,9 @@ body {
     color: var(--main-bg-color);
     background-color: whitesmoke;
     transition: color 1s ease-in;
+    padding: 8px 10px 6px;
+    font-size: 1.5em;
+
 }
 
 .quote-button-container {

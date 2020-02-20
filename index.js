@@ -19,10 +19,13 @@ const colourChange = () => {
 }
 
 window.addEventListener('load', () => {
+    easeText();
     insertQuote();
- 
 })
+
 elements.newQuote.addEventListener('click', () => {
+
+    easeText();
     insertQuote();
     colourChange();
 });
@@ -34,3 +37,21 @@ elements.newQuote.addEventListener('click', () => {
     elements.author.innerHTML = results['author'];
 }
 
+
+function easeText() {
+    easing.call(elements.text);
+    easing.call(elements.author);
+    easing.call(elements.newQuote);
+
+}
+
+
+function easing() {
+    this.animate([
+        {opacity: 0},
+        {opacity: 1}
+    ], {
+        duration: 1500,
+        easing: 'ease-out'
+    });
+}
